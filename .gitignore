@@ -1,0 +1,6 @@
+python/__pycache__
+dbdata
+data_mongo
+data/postgres
+data/csv
+data/mongoDb
