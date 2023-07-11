@@ -1,0 +1,28 @@
+services:
+ db_mongo:
+  image: mongo:latest
+  ports:
+    - "27017:27017"
+  volumes:
+      -  ./data_mongo:/data/db
+  environment:
+      MONGO_INITDB_ROOT_USERNAME: northwind_user_mongodb
+      MONGO_INITDB_ROOT_PASSWORD: mongodb2022
+
+
+
+
+# version: '3'
+
+# services:
+#   db_final:
+#     image: postgres:12
+#     environment:
+#       POSTGRES_DB: northwind_final
+#       POSTGRES_USER: northwind_user_final
+#       POSTGRES_PASSWORD: postgre2022
+#     volumes:
+#       - ./dbdata_final:/var/lib/postgresql/data
+#       - ./data/northwind_final.sql:/docker-entrypoint-initdb.d/northwind_final.sql
+#     ports:
+#       - 7777:5432
