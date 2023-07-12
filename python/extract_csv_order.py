@@ -4,10 +4,11 @@ import json
 from datetime import datetime
 
 def extract_order_details():
+    strDate = datetime.now().date() 
     try:
         orderData = pd.read_csv("data\order_details.csv")
         orderRecords = orderData.to_dict('records')
-        orderPath = f'data\csv\order_details\{datetime.now().date()}'
+        orderPath = f'data\csv\order_details\{strDate}'
 
         if not os.path.exists(orderPath):
             os.makedirs(orderPath)

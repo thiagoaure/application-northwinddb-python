@@ -8,13 +8,14 @@ db = client["northwind_mongodb"]
 
 table_names = [item.value for item in TABLE_NAMES]
 
-def insert_data_mongodb():
+def insert_data_mongodb(strDate = None):
+    if strDate is None: strDate = datetime.now().date() 
     try:
         for table_name in table_names:
             if table_name == "order_details":
-                pathTable = f"data\csv\{table_name}\{datetime.now().date()}\{table_name}.json"
+                pathTable = f"data\csv\{table_name}\{strDate}\{table_name}.json"
             else:
-                pathTable = f"data\postgres\{table_name}\{datetime.now().date()}\{table_name}.json"
+                pathTable = f"data\postgres\{table_name}\{strDate}\{table_name}.json"
             with open(pathTable, "r") as file:
                 data = json.load(file)
                 if len(data) == 0 or data is None:

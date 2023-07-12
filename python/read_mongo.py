@@ -9,7 +9,8 @@ db = client["northwind_mongodb"]
 
 table_names = [item.value for item in TABLE_NAMES]
 
-def read_mongo():
+def read_mongo(): 
+    strDate = datetime.now().date()
     try:
         for table_name in table_names:
 
@@ -21,7 +22,7 @@ def read_mongo():
                 data.pop("_id", None)
                 dataList.append(dict(data))
                 
-            tablePath = f'data\mongoDb\{table_name}\{datetime.now().date()}'
+            tablePath = f'data\mongoDb\{table_name}\{strDate}'
             if not os.path.exists(tablePath):
                 os.makedirs(tablePath)
                 with open(f"{tablePath}\{table_name}.json", "w") as json_file:

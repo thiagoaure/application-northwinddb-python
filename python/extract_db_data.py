@@ -9,6 +9,7 @@ table_names = [item.value for item in TABLE_NAMES]
 table_names.remove("order_details")
 
 def extract_db_data():
+    strDate = datetime.now().date() 
     for table_name in table_names:
         try:
             cnn = psycopg2.connect(**db_config_read)
@@ -38,7 +39,7 @@ def extract_db_data():
             cur.close()
             cnn.close()
 
-        tablePath = f'data\postgres\{table_name}\{datetime.now().date()}'
+        tablePath = f'data\postgres\{table_name}\{strDate}'
         if not os.path.exists(tablePath):
             os.makedirs(tablePath)
             with open(f"{tablePath}\{table_name}.json", "w") as json_file:
