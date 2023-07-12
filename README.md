@@ -21,22 +21,23 @@ Para executar o projeto sem nenhum problema de conexão, execute os dois contain
 
 ```
 docker-compose -f .\docker-compose.yml up
-
+```
+```
 docker-compose -f .\docker-compose-mongodb.yml up
 ```
 
-Após a execução dos comandos, verifique se os  containers estão em execução:
+Após a execução dos comandos, aguarda um tempo e verifiue nos logs se o banco postgre foi populado com as informações do data\northwind.sql, depois observe se os  ontainers estão em execução:
 
 ```
 docker ps 
 ```
 
-Se estiver os dois em execução, está pornto para processar os dados na aplicação na qual se divide em 4 partes:
+Se estiver os dois em execução, está pronto para processar os dados na aplicação na qual se divide em 4 partes:
 
 - Ler os dados do arquivo em data\order_details.csv e salvar no diretório data\csv\order_details\ em formato JSON.
 - Ler os dados do banco PostgreSQL e salvar do diretório data\postgres em formato JSON.
 - Inserir os dados que estão salvos no diretório local no banco nosql MongoDB.
-- Ler todos os dados salvos no MongoDB e salvar na memmória local em formato JSON.
+- Ler todos os dados salvos no MongoDB e salvar na memória local em formato JSON.
 
 OBS: Todos os dados são armazenados separadamente por tabela e data de execução da tarefa. Sendo assim, ao executar a tarefa de Inserir os dados no MongoDB, fica opcional passar a data escolhida para obter os dados processados naquele dia, caso contário será levado em consideração a data do dia corrido.
 
