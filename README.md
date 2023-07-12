@@ -21,11 +21,12 @@ Para executar o projeto sem nenhum problema de conexão, execute os dois contain
 
 ```
 docker-compose -f .\docker-compose.yml up
-
+```
+```
 docker-compose -f .\docker-compose-mongodb.yml up
 ```
 
-Após a execução dos comandos, verifique se os  containers estão em execução:
+Após a execução dos comandos, aguarda um tempo e verifiue nos logs se o banco postgre foi populado com as informações do data\northwind.sql, depois observe se os  ontainers estão em execução:
 
 ```
 docker ps 
